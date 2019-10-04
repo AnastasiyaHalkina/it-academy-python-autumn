@@ -14,7 +14,6 @@ lst.remove('2a')
 print(lst)
 """Copy the above list and add '2a' back into the list such 
 that the original is still missing it."""
-
 lst2 = copy.copy(lst)
 lst2[1] = '2a'
 lst2 = lst2[:2] + lst[1:]
