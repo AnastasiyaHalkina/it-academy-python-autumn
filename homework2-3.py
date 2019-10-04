@@ -1,4 +1,4 @@
-"""Задача взята с сайта https://py.checkio.org/
+""" Задача взята с сайта https://py.checkio.org/
 Условие задачи: Дана строка и нужно найти ее первое слово.
 При решении задачи обратите внимание на следующие моменты:
 В строке могут встречатся точки и запятые
@@ -11,9 +11,7 @@
 
 
 def first_word(text: str) -> str:
-    """
- returns the  first word in a given text.
-    """
+    # returns the  first word in a given text
 
     text = text.replace('.', ' ').replace(',', ' ').strip()
     text = text.split()

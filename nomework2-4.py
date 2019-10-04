@@ -1,8 +1,7 @@
-"""Задача взята с сайта https://py.checkio.org/
+""" Задача взята с сайта https://py.checkio.org/
 Условие задачи: Вам дана строка и два маркера (начальный и конечный).
 Вам необходимо найти текст, заключенный между двумя этими маркерами.
 Но есть несколько важных условий:
-
 Начальный и конечный маркеры всегда разные
 Если нет начального маркера, то началом считать начало строки
 Если нет конечного маркера, то концом считать конец строки
@@ -13,10 +12,7 @@ Output: Строка.
 
 
 def between_markers(text: str, begin: str, end: str) -> str:
-
-    """
-returns substring between two given markers
-    """
+    # returns substring between two given markers
 
     if begin in text:
         num_start = text.find(begin) + len(begin)

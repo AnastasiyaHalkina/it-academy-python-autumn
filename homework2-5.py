@@ -1,4 +1,4 @@
-"""Задача взята с сайта https://py.checkio.org/
+""" Задача взята с сайта https://py.checkio.org/
 Условие задачи: Дан массив с положительными числами и число N.
 Вы должны найти N-ую степень элемента в массиве с индексом N.
  Если N за границами массива, тогда вернуть -1.
@@ -9,10 +9,8 @@
 
 
 def index_power(array: list, n: int) -> int:
+    # Find Nth power of the element with index N.
 
-    """
-        Find Nth power of the element with index N.
-    """
     if n < len(array):
         result = array[n] ** n
     else:
