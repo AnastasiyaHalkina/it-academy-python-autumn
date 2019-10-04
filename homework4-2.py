@@ -12,7 +12,7 @@ print(lst)
 # Simultaneously remove the element '2a' from the above list and print it.
 lst.remove('2a')
 print(lst)
-"""Copy the above list and add '2a' back into the list such 
+""" Copy the above list and add '2a' back into the list such
 that the original is still missing it."""
 lst2 = copy.copy(lst)
 lst2[1] = '2a'
