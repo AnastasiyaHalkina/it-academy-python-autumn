@@ -14,3 +14,9 @@ def second_index(text: str, symbol: str) -> [int, None]:
     first_enter = text.find(symbol)
     result = text.find(symbol, first_enter + 1)
     return result
+
+
+text1 = str(input('Enter text: '))
+symbol1 = str(input('Enter symbol: '))
+
+print(second_index(text1, symbol1))

@@ -16,3 +16,7 @@ def first_word(text: str) -> str:
     text = text.replace('.', ' ').replace(',', ' ').strip()
     text = text.split()
     return text[0]
+
+
+text1 = str(input('Enter text: '))
+print(first_word(text1))

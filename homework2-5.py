@@ -12,7 +12,12 @@ def index_power(array: list, n: int) -> int:
     # Find Nth power of the element with index N.
 
     if n < len(array):
-        result = array[n] ** n
+        result = int(array[n]) ** n
     else:
         result = -1
     return result
+
+
+array1 = list(input('Enter list: '))
+n1 = int(input('Enter N: '))
+print(index_power(array1, n1))
