@@ -6,4 +6,5 @@ max_word = lst_new[0]
 for i in range(n):
     if max_word <= lst_new[i]:
         max_word = lst_new[i]
+        print(max_word)
 print(max_word)
