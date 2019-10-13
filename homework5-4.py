@@ -1,0 +1,5 @@
+lst1 = str(input('Enter the first list of numbers separated by spaces: '))
+lst2 = str(input('Enter the second list of numbers separated by spaces: '))
+lst3 = set(lst1.split()) & set(lst2.split())
+result = len(lst3)
+print(result)
