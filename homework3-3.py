@@ -1,12 +1,13 @@
-a = str(input('Enter phrase: '))
+# Посчитать количество строчных (маленьких) и
+# прописных (больших) букв в введенной строке.
+# Учитывать только английские буквы.
+
+text = str(input('Enter phrase: '))
 down_l = 0
 upper_l = 0
-for symbol in a:
+for symbol in text:
     if 'a' <= symbol <= 'z':
         down_l += 1
     elif 'A' <= symbol <= 'Z':
         upper_l += 1
-    else:
-        down_l = down_l
-        upper_l = upper_l
 print(down_l, upper_l)
