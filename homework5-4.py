@@ -1,5 +1,8 @@
-lst1 = str(input('Enter the first list of numbers separated by spaces: '))
-lst2 = str(input('Enter the second list of numbers separated by spaces: '))
-lst3 = set(lst1.split()) & set(lst2.split())
+# Даны два списка чисел. Посчитайте, сколько чисел
+# содержится одновременно как в первом списке, так и во втором.
+
+lst1 = list(input('Enter the first list of numbers: '))
+lst2 = list(input('Enter the second list of numbers: '))
+lst3 = set(lst1) & set(lst2)
 result = len(lst3)
 print(result)
