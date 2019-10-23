@@ -11,5 +11,5 @@ except FileNotFoundError:
     print("File not found!")
 finally:
     f.close()
-f.close()"""
-f = open(r'./data6/ ratings.list', 'r')
+f.close()
+f = open(r'./data6/ ratings.list', 'r')"""
