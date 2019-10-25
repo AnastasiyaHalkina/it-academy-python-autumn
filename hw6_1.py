@@ -20,4 +20,6 @@ def runner(*lst):
             print(func())
 
 
-runner()
+# runner()
+# runner('gen_numbers')
+# runner('get_long_word', 'gen_numbers')

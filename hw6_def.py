@@ -1,35 +1,54 @@
-def total_price(euro_one=1, cent_one=3, quantity=3):
+"""
+Модуль с функциями, которые используются для работы функции runner.
+"""
+
+
+def total_price():
     """Напишите программу, которая считает общую цену.
     Вводится M рублей и N копеек цена, а также количество L товара
     Посчитайте общую цену в рублях и копейках за L товаров."""
+
+    euro_one = int(input('Enter euro for 1p.: '))
+    cent_one = int(input('Enter cents for 1p.: '))
+    quantity = int(input('Enter quantity of goods: '))
 
     c = cent_one / 100
     euro = int(euro_one * quantity + ((cent_one * quantity) // 100))
     res = (euro_one + c) * quantity
     cents = round((res - euro) * 100)
-    return print('Total: {euro} euro {cents} cents'.format(euro=euro, cents=cents))
+    return 'Total: {euro} euro {cents} cents'.format(euro=euro, cents=cents)
 
 
-def second_index(text='abcdcef', symbol='c'):
+def second_index():
     # returns the second index of a symbol in a given text
+
+    text = str(input('Enter text: '))
+    symbol = str(input('Enter symbol: '))
 
     if text.count(symbol) < 2:
         return None
+
     first_enter = text.find(symbol)
     result = text.find(symbol, first_enter + 1)
     return result
 
 
-def first_word(text=' returns the  first word in a given text'):
+def first_word():
     # returns the  first word in a given text
+
+    text = str(input('Enter text: '))
 
     text = text.replace('.', ' ').replace(',', ' ').strip()
     text = text.split()
     return text[0]
 
 
-def between_markers(text='returns substring between two given markers', begin='two', end='markers'):
+def between_markers():
     # returns substring between two given markers
+
+    text = str(input('Enter text: '))
+    begin = str(input('Enter begin marker: '))
+    end = str(input('Enter end marker: '))
 
     pos = text.find(begin)
     num_start = pos + len(begin) if pos else 0
@@ -38,35 +57,44 @@ def between_markers(text='returns substring between two given markers', begin='t
     return text[num_start:num_end]
 
 
-"""def index_power(array, n):
+def index_power():
     # Find Nth power of the element with index N.
+
+    array = list(input('Enter list of numbers: '))
+    n = int(input('Enter index N: '))
 
     if n < len(array):
         result = int(array[n]) ** n
     else:
         result = -1
     return result
-"""
 
-def get_long_word(text='Aaaa bbb ccccc d?'):
+
+def get_long_word():
     """ Найти самое длинное слово в введенном предложении.
     Учтите что в предложении есть знаки препинания"""
+
+    text = str(input('Enter text: '))
 
     lst = text.split()
     n = len(lst)
     lst_new = [lst[i].strip(' .,!?:;"') for i in range(n)]
     max_word = lst_new[0]
+
     for element in lst_new:
         if len(element) >= len(max_word):
             max_word = element
     return max_word
 
 
-def get_new_string(text='abc cde def'):
+def get_new_string():
     """ Вводится строка. Требуется удалить из нее
     повторяющиеся символы и все пробелы."""
 
+    text = str(input('Enter text: '))
+
     text1 = text.replace(' ', '')
+
     result = ''
     for symbol in text1:
         if symbol not in result:
@@ -74,13 +102,16 @@ def get_new_string(text='abc cde def'):
     return result
 
 
-def count_words(text='QqWwEeRrTtY!'):
+def count_words():
     """ Посчитать количество строчных (маленьких) и
     прописных (больших) букв в введенной строке.
     Учитывать только английские буквы."""
 
+    text = str(input('Enter text: '))
+
     down_l = 0
     upper_l = 0
+
     for symbol in text:
         if 'a' <= symbol <= 'z':
             down_l += 1
@@ -113,12 +144,14 @@ def dct_sqr(n=20):
      Default is 20."""
 
     dct = {el: el ** 2 for el in range(1, n + 1)}
-    return print(dct)
+    return dct
 
 
-def count_me_string(text='aaabbc'):
+def count_me_string():
     """ Define a code which count
     and return the numbers of each character in a count_me_string argument."""
+
+    text = str(input('Enter text: '))
 
     dct = {}
     for symbol in text:

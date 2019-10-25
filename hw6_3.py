@@ -9,12 +9,12 @@ def get_ranges(lst):
         if lst[i] + 1 == lst[i + 1] and lst[i] - 1 != lst[i - 1]:
             result += '{}-'.format(lst[i])
         elif lst[i] + 1 != lst[i + 1]:
-            result += '{},'.format(lst[i])
+            result += '{}, '.format(lst[i])
         elif lst[i] + 1 == lst[i + 1] and lst[i] - 1 == lst[i - 1]:
             result += ''
     result += str(lst[-1])
     print(result)
 
 
-lst1 = list(input('Enter list of numbers: '))
+lst1 = list(map(int, input('Enter numbers separated by spaces: ').split()))
 get_ranges(lst1)
