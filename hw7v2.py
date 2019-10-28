@@ -1,14 +1,19 @@
 class Tourist(object):
-    name = str(input('Enter your name: '))
-    room = int(input('Enter the room you want to book: '))
-    nights = int(input('How many nights?: '))
 
-    tourist_info = {'name': name, 'room': room, 'nights': nights}
+    def get_info(self):
+        name = str(input('Enter your name: '))
+        room = int(input('Enter the room you want to book: '))
+        nights = int(input('How many nights?: '))
+        self.name = name
+        self.room = room
+        self.nights = nights
+        self.tourist_info = {'name': self.name, 'room': self.room, 'nights': self.nights}
+        return self.tourist_info
 
 
 class Hotel(object):
 
-    """ содержит данные о номерах отеля,
+    """содержит данные о номерах отеля,
     информацию о стоимости номера в сутки,
     а также методы изменения стоимости в зависимости от сезона года
     """
@@ -56,12 +61,14 @@ class Hotel(object):
 
 class Booking(Hotel, Tourist):
 
-    @staticmethod
-    def book_room():
+    def __init__(self):
+        self.get_info = Tourist.get_info(self)
+
+    def book_room(self):
         """расчет стоимости бронирования номера"""
 
-        room = Tourist.tourist_info['room']
-        nights = Tourist.tourist_info['nights']
+        room = self.get_info['room']
+        nights = self.get_info['nights']
 
         for key in Hotel.prices_all_rooms.keys():
             if str(room) == key[-3:]:
@@ -69,16 +76,15 @@ class Booking(Hotel, Tourist):
                 return 'Total price: {total_price} euro.'\
                     .format(total_price=total_price)
 
-    @staticmethod
-    def print_booking():
+    def print_booking(self):
         """вывод информации, подтверждающей бронирование"""
 
-        result1 = Booking.book_room()
+        result1 = Booking.book_room(self)
         result = """{}, welcome to our Hotel!
 Your room is {} for {} nights.
-""".format(Tourist.tourist_info['name'],
-           Tourist.tourist_info['room'],
-           Tourist.tourist_info['nights'])
+""".format(self.get_info['name'],
+           self.get_info['room'],
+           self.get_info['nights'])
 
         result += result1
         return result
@@ -90,9 +96,9 @@ print(dir(t))
 h = Hotel()
 print(dir(h))
 
-b = Booking()
-print(dir(b))
+b1 = Booking()
+b2 = Booking()
+print(dir(b1))
 
-# взаимодействие объектов
-print(h.change_summer_price())
-print(b.print_booking())
+print(b1.print_booking())
+print(b2.print_booking())
