@@ -8,6 +8,10 @@ ratings.txt – гистограмма рейтингов,
 years.txt – гистограмма годов.
 """
 
-# for line in open('ratings.list', 'r', encoding='ISO 8859-1'):
-#     print(line)
-
+try:
+    my_file = open('ratings.list', 'r', encoding="ISO-8859-1")
+    for line in my_file:
+        print(line)
+    my_file.close()
+except FileNotFoundError:
+    print("File not found!")
