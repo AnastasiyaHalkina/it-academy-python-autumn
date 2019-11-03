@@ -6,6 +6,7 @@
 def total_price():
 
     """Напишите программу, которая считает общую цену.
+
     Вводится M рублей и N копеек цена, а также количество L товара
     Посчитайте общую цену в рублях и копейках за L товаров.
     """
@@ -75,6 +76,7 @@ def index_power():
 def get_long_word():
 
     """Найти самое длинное слово в введенном предложении.
+
     Учтите что в предложении есть знаки препинания
     """
 
@@ -92,10 +94,8 @@ def get_long_word():
 
 
 def get_new_string():
-
-    """Вводится строка. Требуется удалить из нее
-    повторяющиеся символы и все пробелы.
-    """
+    # Вводится строка. Требуется удалить из нее
+    # повторяющиеся символы и все пробелы.
 
     text = str(input('Enter text: '))
 
@@ -109,11 +109,9 @@ def get_new_string():
 
 
 def count_words():
-
-    """Посчитать количество строчных (маленьких) и
-    прописных (больших) букв в введенной строке.
-    Учитывать только английские буквы.
-    """
+    # Посчитать количество строчных (маленьких) и
+    # прописных (больших) букв в введенной строке.
+    # Учитывать только английские буквы.
 
     text = str(input('Enter text: '))
 
@@ -130,7 +128,8 @@ def count_words():
 
 def gen_numbers():
 
-    """Write a program that prints the numbers from 1 to 100,
+    """Write a program that prints the numbers from 1 to 100
+
     but for multiples of three print “Fizz” instead of the number
     and for multiples of five print “Buzz”.
     For numbers which are multiples of both three and five,
@@ -151,20 +150,20 @@ def gen_numbers():
 def dct_sqr(n=20):
 
     """Define a dict comprehension which returns a dictionary
+
     where the keys are numbers between 1 and n (both included)
-     and the values are square of keys. n – function argument.
-     Default is 20.
-     """
+    and the values are square of keys. n – function argument.
+    Default is 20.
+    """
 
     dct = {el: el ** 2 for el in range(1, n + 1)}
     return dct
 
 
 def count_me_string():
-
-    """Define a code which count
-    and return the numbers of each character in a count_me_string argument.
-    """
+    # Define a code which count
+    # and return the numbers of each character
+    # in a count_me_string argument.
 
     text = str(input('Enter text: '))
 
