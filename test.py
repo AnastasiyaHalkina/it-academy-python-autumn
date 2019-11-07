@@ -63,16 +63,16 @@ class Hotel(object):
         return self.prices_all
 
 
-class Booking(Tourist):
+class Booking(object):
 
-    def __init__(self):
-        self.get_info = Tourist.get_info(self)
+    def __init__(self, tourist):
+        self.tourist_info = tourist.get_info()
 
     def book_room(self):
         """расчет стоимости бронирования номера"""
 
-        room = self.get_info['room']
-        nights = self.get_info['nights']
+        room = self.tourist_info['room']
+        nights = self.tourist_info['nights']
 
         for key in Hotel.prices_all.keys():
             if str(room) == key[-3:]:
@@ -84,25 +84,25 @@ class Booking(Tourist):
         """вывод информации, подтверждающей бронирование"""
 
         result1 = Booking.book_room(self)
-        result = """{}, welcome to our Hotel!
-Your room is {} for {} nights.
-""".format(self.get_info['name'],
-           self.get_info['room'],
-           self.get_info['nights'])
+        result = """{tourist_name}, welcome to our Hotel!
+Your room is {num_of_room} for {num_of_nights} nights.
+""".format(tourist_name=self.tourist_info['name'],
+           num_of_room=self.tourist_info['room'],
+           num_of_nights=self.tourist_info['nights'])
 
         result += result1
         return result
 
 
 if __name__ == '__main__':
-    t1 = Tourist()
-    t2 = Tourist()
+    tourist1 = Tourist()
+    tourist2 = Tourist()
 
-    print(dir(t1))
-    print(dir(t2))
+    print(dir(tourist1))
+    print(dir(tourist2))
 
-    # print(t1.get_info())
-    # print(t2.get_info())
+    # print(tourist1.get_info())
+    # print(tourist2.get_info())
 
     h1 = Hotel()
     h2 = Hotel()
@@ -112,8 +112,8 @@ if __name__ == '__main__':
     print(h1.change_summer_price())
     print(h2.change_spring_price())
 
-    book1 = Booking()
-    book2 = Booking()
+    book1 = Booking(tourist1)
+    book2 = Booking(tourist2)
     print(book1.print_booking())
     print(book2.print_booking())
 
