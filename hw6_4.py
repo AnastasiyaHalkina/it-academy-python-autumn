@@ -9,9 +9,9 @@ years.txt – гистограмма годов.
 """
 
 try:
-    my_file = open('ratings.list', 'r', encoding="ISO-8859-1")
-    for line in my_file:
-        print(line)
-    my_file.close()
+    file = open('ratings.list', 'r', encoding="ISO-8859-1")
+    my_file = file.read()
+    print(my_file)
+    file.close()
 except FileNotFoundError:
     print("File not found!")

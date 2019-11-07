@@ -8,8 +8,8 @@ import hw6_def
 
 
 def runner(*lst):
-    lst_def = [attr for attr in dir(hw6_def) if 'a' <= attr[0] <= 'z']
-
+    lst_def = [attr for attr in dir(hw6_def) if not attr.startswith("__")]
+    print(lst_def)
     if len(lst) >= 1:
         for element in lst:
             func = getattr(hw6_def, element)
