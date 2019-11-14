@@ -19,10 +19,11 @@ class Hotel(object):
     # Номера комнат, информацию о стоимости номера в сутки,
     # а также методы изменения стоимости в зависимости от сезона года
 
-    prices_all = {"room_101": 15,
-                  "room_102": 20,
-                  "room_103": 25,
-                  "room_104": 30}
+    def __init__(self):
+        self.prices_all = {"101": 15,
+                           "102": 20,
+                           "103": 25,
+                           "104": 30}
 
     def change_base_price(self):
         """изменение стоимости любого из номеров"""
@@ -31,7 +32,7 @@ class Hotel(object):
         price = int(input('Enter new price: '))
 
         for key in self.prices_all.keys():
-            if key[-3:] == room:
+            if key == room:
                 self.prices_all.update({key: price})
         return self.prices_all
 
@@ -65,8 +66,9 @@ class Hotel(object):
 
 class Booking(object):
 
-    def __init__(self, tourist):
+    def __init__(self, tourist, price):
         self.tourist_info = tourist.get_info()
+        self.prices_all = price.prices_all
 
     def book_room(self):
         """расчет стоимости бронирования номера"""
@@ -74,9 +76,9 @@ class Booking(object):
         room = self.tourist_info['room']
         nights = self.tourist_info['nights']
 
-        for key in Hotel.prices_all.keys():
-            if str(room) == key[-3:]:
-                total_price = Hotel.prices_all[key] * nights
+        for key in self.prices_all.keys():
+            if str(room) == key:
+                total_price = self.prices_all[key] * nights
                 return 'Total price: {0:.2f} euro.'\
                     .format(total_price)
 
@@ -97,6 +99,7 @@ Your room is {num_of_room} for {num_of_nights} nights.
 if __name__ == '__main__':
     tourist1 = Tourist()
     tourist2 = Tourist()
+    tourist3 = Tourist()
 
     print(dir(tourist1))
     print(dir(tourist2))
@@ -104,18 +107,22 @@ if __name__ == '__main__':
     # print(tourist1.get_info())
     # print(tourist2.get_info())
 
-    h1 = Hotel()
-    h2 = Hotel()
-    print(dir(h1))
-    print(dir(h2))
+    price1 = Hotel()
+    print(dir(price1))
+    print(price1.prices_all)
+    print(price1.change_summer_price())
 
-    print(h1.change_summer_price())
-    print(h2.change_spring_price())
+    price2 = Hotel()
+    print(dir(price2))
+    print(price2.prices_all)
+    print(price2.change_spring_price())
 
-    book1 = Booking(tourist1)
-    book2 = Booking(tourist2)
+    book1 = Booking(tourist1, price1)
     print(book1.print_booking())
+
+    book2 = Booking(tourist2, price2)
     print(book2.print_booking())
 
-    print(dir(book1))
-    print(dir(book2))
+    price3 = Hotel()
+    book3 = Booking(tourist3, price3)
+    print(book3.print_booking())
